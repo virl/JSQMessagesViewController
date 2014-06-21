@@ -198,12 +198,12 @@ static NSString * const kJSQDemoAvatarNameWoz = @"Steve Wozniak";
          *  This you should do upon receiving a message:
          *
          *  1. Play sound (optional)
-         *	2. Call `startReceivingMessage`
+         *  2. Call `startReceivingMessage`
          *  3. Add new id<JSQMessageData> object to your data source
          *  4. Call `finishReceivingMessage`
          */
         [JSQSystemSoundPlayer jsq_playMessageReceivedSound];
-		[self startReceivingMessage];
+        [self startReceivingMessage];
         [self.messages addObject:copyMessage];
         [self finishReceivingMessage];
     });
@@ -247,7 +247,13 @@ static NSString * const kJSQDemoAvatarNameWoz = @"Steve Wozniak";
      */
 }
 
-
+- (void)collectionView:(JSQMessagesCollectionView *)collectionView
+		 didTapMessage:(id<JSQMessageData>)messageData
+           atIndexPath:(NSIndexPath *)indexPath
+{
+	//UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:[messageData sender] message:[messageData text] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	//[alertView show];
+}
 
 #pragma mark - JSQMessages CollectionView DataSource
 
